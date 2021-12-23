@@ -1,3 +1,4 @@
+import { NotfoundComponent } from './notfound/notfound.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
@@ -5,10 +6,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'home' ,component: HomeComponent},
+  { path: '' ,component: HomeComponent},
   { path: 'users',component: UsersComponent},
-  { path: 'users/profile' , component: ProfilesComponent},
-  { path: '', redirectTo: '/home' , pathMatch: 'full' },
+  { path: 'users/:id' , component: ProfilesComponent},
+  { path: '**', component: NotfoundComponent},
+  { path: 'users/**', redirectTo: '/NotfoundComponent'}
 
 ];
 
